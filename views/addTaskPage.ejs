@@ -1,0 +1,25 @@
+<%- include('partials/top.ejs') %>
+
+<form action="/task/add" method="post">
+    <h3>Add Task</h3>
+    <input class="form-control mb-3" type="text" name="task" placeholder="Task">
+    <textarea class="form-control mb-3" name="description"  cols="30" rows="10" placeholder="Description"></textarea>
+    <input class="form-control mb-3" type="date" name="deadline" >
+
+    <select name="categoryID" class="form-control mb-3" >
+        <% categories.forEach(category => { %>
+            <option value="<%= category.id %>"><%= category.name %></option>
+      <%  }) %>
+    </select>
+
+
+    <select name="priorityID" class="form-control mb-3" >
+        <% priorities.forEach(priority => { %>
+            <option value="<%= priority.id %>"><%= priority.name %></option>
+      <%  }) %>
+    </select>
+    
+    <button class="btn btn-primary form-control">Add</button>
+</form>
+
+<%- include('partials/bottom.ejs') %>

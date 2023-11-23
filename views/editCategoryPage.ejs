@@ -1,0 +1,10 @@
+<%- include('partials/top.ejs') %>
+
+<form action="/category/edit/<%=category.id  %>" method="post">
+    <h3>Edit category</h3>
+    <input class="form-control mb-3" type="text" name="categoryName" value="<%= category.name %>">
+    <input class="mb-3 w-100" style="height: 50px" type="color" name="categoryColor" value="<%= category.color %>">
+    <button class="btn btn-primary form-control">Update</button>
+</form>
+
+<%- include('partials/bottom.ejs') %>
