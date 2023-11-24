@@ -13,13 +13,11 @@ const changeStatus = async (req,res,next)=>{
 
     let values = {done,id}
 
-    console.log(values)
 
     let sql = 'UPDATE tasks t SET t.completed = :done WHERE t.id = :id'
 
     try {
        let [result] =  await pool.execute({sql,values})
-    console.log(result)
         res.redirect('/task/all')
     } catch (error) {
         console.log(error)

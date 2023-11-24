@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 23, 2023 at 01:55 PM
+-- Generation Time: Nov 24, 2023 at 09:24 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,6 +20,38 @@ SET time_zone = "+00:00";
 --
 -- Database: `my_tasks`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `category`
+--
+
+CREATE TABLE `category` (
+  `id` int(11) NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `color` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `priority`
+--
+
+CREATE TABLE `priority` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `color` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `priority`
+--
+
+INSERT INTO `priority` (`id`, `name`, `color`) VALUES
+(1, 'Low', '#fcba03'),
+(2, 'Medium', '#c542f5');
 
 -- --------------------------------------------------------
 
@@ -43,12 +75,26 @@ CREATE TABLE `tasks` (
 --
 
 INSERT INTO `tasks` (`id`, `task`, `description`, `deadline`, `created`, `priority_id`, `category_id`, `completed`) VALUES
-(4, 'Learn Node.js', 'Need to learn fundamentals of NodeJs', '2023-12-01', '2023-11-21', 1, 8, 1),
-(5, 'LEARN JS', 'SSSSSSSSSSSSSSSSSSSSS', '2024-01-01', '2023-11-22', 2, 18, 0);
+(14, 'Task 1', 'Task 1 description', '2023-11-25', '2023-11-23', 1, 8, 0),
+(15, 'Task 2', 'Task 2 description', '2023-12-21', '2023-11-23', 2, 18, 0),
+(16, 'Task 3', 'Task 3 description', '2023-11-28', '2023-11-23', 1, 19, 0),
+(17, 'Task 2', '', '0000-00-00', '2023-11-23', 1, 8, 0);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `priority`
+--
+ALTER TABLE `priority`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tasks`
@@ -63,10 +109,22 @@ ALTER TABLE `tasks`
 --
 
 --
+-- AUTO_INCREMENT for table `category`
+--
+ALTER TABLE `category`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT for table `priority`
+--
+ALTER TABLE `priority`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `tasks`
 --
 ALTER TABLE `tasks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

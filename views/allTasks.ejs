@@ -11,13 +11,14 @@
             <div>
                 <% if (task.completed === 1) { %>
                  
-                    <a href="/task/status?done=true&id=<%= task.id%>" class="btn btn-sm btn-primary text-white text-white"><i class="bi bi-check-square"></i></a>
+                    <a href="/task/status?done=false&id=<%= task.id%>" class="btn btn-sm btn-primary text-white text-white"><i class="bi bi-check-square"></i></a>
 
                 <% }else{ %>
-                    <a href="/task/status?done=false&id=<%= task.id%>" class="btn btn-sm btn-primary text-white text-white"><i class="bi bi-square"></i></a>
+                    <a href="/task/status?done=true&id=<%= task.id%>" class="btn btn-sm btn-primary text-white text-white"><i class="bi bi-square"></i></a>
 
                 <% } %>
-
+            
+                <a href="/task/edit/<%= task.id %>" class="btn btn-sm btn-warning text-white text-white"><i class="bi bi-gear"></i></a>
                 <a href="/task/delete/<%= task.id %>" class="btn btn-sm btn-warning text-white text-white"><i class="bi bi-trash"></i></a>
             </div>
         </div>
