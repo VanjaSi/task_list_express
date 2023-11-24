@@ -7,8 +7,6 @@ const addCategory = async (req,res,next)=>{
 
     const sql = `INSERT INTO category (name,color) VALUES(:categoryName, :categoryColor)`
     
-
-    
     try {
 
        await pool.execute({sql,values})
